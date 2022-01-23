@@ -32,9 +32,11 @@ from keywordfinder import policy_keywords
 
 output = policy_keywords().getKeyWords('keywords.txt', 'stopwords.txt', 'policies.txt', 71)
 output += policy_keywords().getKeyWords(keywords_doc=None, stopwords_list='stopwords.txt', policies_text='policies.txt', n_words=10)
-policy_keywords().highlight_doc('out.html', output, 'privacy_policy_files/AmazonDataPolicy.txt')
+companies_list = ['Amazon', 'Facebook', 'Google', 'Grubhub', 'Instagram', 'Linkedin', 'Snapchat', 'Tiktok', 'Uber', 'Twitch', 'Yahoo']
 
-print(output)
+for company in companies_list:
+    policy_keywords().highlight_doc('%s.html' % (company,), output, 'privacy_policy_files/%sDataPolicy.txt' % (company,))
+    print(company)
 # keywords = kw_model.extract_keywords(doc, highlight=True)
 # st.text(keywords)
 # st.markdown(keywords)
