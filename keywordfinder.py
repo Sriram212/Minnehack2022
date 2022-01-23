@@ -1,7 +1,7 @@
 import yake
-from keyBERT.KeyBERT.keybert import KeyBERT
+from keyBERT import KeyBERT
 import re
-from keyBERT.KeyBERT.keybert._highlight import highlight_document
+from keyBERT._highlight import highlight_document
 # from keybert._highlight import highlight_document
 
 def write_yellow(f, str_):
