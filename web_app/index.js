@@ -34,3 +34,14 @@ app.get('/',function(req, res) {
 app.get('/bailey',function(req, res) {
 	res.sendFile(__dirname + '/client/bailey.html');
 });
+// function to return the amazon page
+app.get('/amazon',function(req, res) {
+	res.sendFile(__dirname + '/client/amazon.html');
+});
+
+// function to return the amazon page
+app.get('/amazonText',function(req, res) {
+	fs.readFile("../Amazon.html", "utf-8", (err, data) => {
+		res.send(data)
+	})
+});
