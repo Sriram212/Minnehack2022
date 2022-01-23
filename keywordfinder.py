@@ -60,7 +60,7 @@ sentences_dict = {}
 
 highlighted_document = highlight_document(linkedin_text, output)
 
-line_end_chars = "! ", "?", '. ', '\n', ';', ' \n'
+line_end_chars = "! ", "?", '. ', '<br>', ';<br>'
 regexPattern = '|'.join(map(re.escape, line_end_chars))
 line_list = re.split(regexPattern, highlighted_document)
 
@@ -70,7 +70,7 @@ f.write('<p>')
 
 for line in line_list:
     if '<span style' in line:
-        f.write(line)
+        f.write(line + '.<br><br>')
 
 # for i in output:
 #     word = i[0]
