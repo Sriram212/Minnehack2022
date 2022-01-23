@@ -19,7 +19,6 @@ app.use(bodyparser());
 const hostname = '127.0.0.1';
 const port = 9007;
 
-
 // server listens on port 9007 for incoming connections
 app.listen(9007, () => console.log('Listening on port 9007!'));
 
@@ -27,33 +26,34 @@ app.use("/client/", express.static(__dirname + '/client'));
 
 // function to return the welcome page
 app.get('/',function(req, res) {
-	res.sendFile(__dirname + '/client/index.html');
+    res.sendFile(__dirname + '/client/index.html');
 });
 
 // function to return the bailey page
 app.get('/bailey',function(req, res) {
-	res.sendFile(__dirname + '/client/bailey.html');
+    res.sendFile(__dirname + '/client/bailey.html');
 });
 // function to return the amazon page
 app.get('/amazon',function(req, res) {
-	res.sendFile(__dirname + '/client/amazon.html');
+    res.sendFile(__dirname + '/client/amazon.html');
+});
+
+// function to return the amazon page
+app.get('/upload',function(req, res) {
+    res.sendFile(__dirname + '/client/upload.html');
 });
 
 // function to return the amazon page
 app.get('/amazonText',function(req, res) {
-	fs.readFile("../Amazon.html", "utf-8", (err, data) => {
-		res.send(data)
-	})
+    fs.readFile("../Amazon.html", "utf-8", (err, data) => {
+        res.send(data)
+    })
 });
 
 // function to return the amazon page
-app.get('/google',function(req, res) {
-	res.sendFile(__dirname + '/client/google.html');
-});
-
-// function to return the amazon page
-app.get('/googleText',function(req, res) {
-	fs.readFile("../Google.html", "utf-8", (err, data) => {
-		res.send(data)
-	})
+app.post('/upload_policy',function(req, res) {
+    var text = req.body.policyText
+    fs.writeFile("out_policies/out.txt", text, err=> {
+        if (err) {throw err;}
+    })
 });
