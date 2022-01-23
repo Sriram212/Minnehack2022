@@ -45,3 +45,15 @@ app.get('/amazonText',function(req, res) {
 		res.send(data)
 	})
 });
+
+// function to return the amazon page
+app.get('/google',function(req, res) {
+	res.sendFile(__dirname + '/client/google.html');
+});
+
+// function to return the amazon page
+app.get('/googleText',function(req, res) {
+	fs.readFile("../Google.html", "utf-8", (err, data) => {
+		res.send(data)
+	})
+});
