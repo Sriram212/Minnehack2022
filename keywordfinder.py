@@ -1,7 +1,8 @@
 import yake
-from keybert import KeyBERT
+from keyBERT.KeyBERT.keybert import KeyBERT
 import re
-from keybert._highlight import highlight_document
+from keyBERT.KeyBERT.keybert._highlight import highlight_document
+# from keybert._highlight import highlight_document
 
 def write_yellow(f, str_):
     f.write('<span style="background-color: #FFFF00">%s</span>' % str_)
@@ -40,9 +41,7 @@ text = text.lower()
 # for kw in keywords:
 #     print(kw)
 
-kw_model = KeyBERT()
-
-output = kw_model.extract_keywords(text, candidates=keywords_list, keyphrase_ngram_range=(1, 1), top_n=71, diversity=0.1, stop_words=stopwords_list)
+output = KeyBERT.extract_keywords(KeyBERT(), docs=text, candidates=keywords_list, keyphrase_ngram_range=(1, 1), top_n=71, diversity=0.1, stop_words=stopwords_list)
 
 list_keywords = []
 for temp in output:
