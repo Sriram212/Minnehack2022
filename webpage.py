@@ -26,8 +26,8 @@ from keywordfinder import policy_keywords
 # st.markdown("sample highlights")
 
 
-output = policy_keywords().getKeyWords('keywords.txt', 'stopwords.txt', 'policies.txt', 71)
-output += policy_keywords().getKeyWords(keywords_doc=None, stopwords_list='stopwords.txt', policies_text='policies.txt', n_words=10)
+output = policy_keywords().getKeyWords('keywords.txt', 'stopwords.txt', 'policies.txt', 50)
+output += policy_keywords().getKeyWords(keywords_doc=None, stopwords_list='stopwords.txt', policies_text='policies.txt', n_words=20)
 companies_list = ['Amazon', 'Facebook', 'Google', 'Grubhub', 'Instagram', 'Linkedin', 'Snapchat', 'Tiktok', 'Uber', 'Yahoo', 'Reddit' ]
 
 for company in companies_list:
