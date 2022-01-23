@@ -23,9 +23,11 @@ const port = 9007;
 // server listens on port 9007 for incoming connections
 app.listen(9007, () => console.log('Listening on port 9007!'));
 
+app.use("/client/", express.static(__dirname + '/client'));
+
 // function to return the welcome page
 app.get('/',function(req, res) {
-	res.sendFile(__dirname + '/client/home.html');
+	res.sendFile(__dirname + '/client/index.html');
 });
 
 // function to return the bailey page
