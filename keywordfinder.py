@@ -42,7 +42,6 @@ class policy_keywords:
         line_list = re.split(regexPattern, highlighted_document)
 
         f = open(html_doc_to_write, 'w')
-        f.write('<html>')
         f.write('<p>')
 
         for line in line_list:
@@ -50,6 +49,5 @@ class policy_keywords:
                 f.write(line + '.<br><br>')
 
         f.write('</p>')
-        f.write('</html>')
         f.close()
 
