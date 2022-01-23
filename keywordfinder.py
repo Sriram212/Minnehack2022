@@ -1,5 +1,5 @@
 import yake
-from keyBERT import KeyBERT
+from keyBERT._model import KeyBERT
 import re
 from keyBERT._highlight import highlight_document
 from nltk.corpus import stopwords as list_of_eng_stopwords
@@ -25,7 +25,7 @@ class policy_keywords:
         stopwords_list = stopwords.split('\n')
         text = text.lower()
 
-        output = KeyBERT.extract_keywords(KeyBERT(), docs=text, candidates=keywords_list, keyphrase_ngram_range=(1, 1), top_n=n_words, diversity=0.1, stop_words=stopwords_list)
+        output = KeyBERT().extract_keywords(KeyBERT(), docs=text, candidates=keywords_list, keyphrase_ngram_range=(1, 1), top_n=n_words, diversity=0.1, stop_words=stopwords_list)
         return output
 
     def highlight_doc(self, html_doc_to_write, keywords, policy):
